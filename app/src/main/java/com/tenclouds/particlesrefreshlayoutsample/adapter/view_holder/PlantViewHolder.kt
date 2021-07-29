@@ -14,7 +14,7 @@ class  PlantViewHolder(val binding: VhPlantBinding):
         binding.apply {
             name.text = plant.name
             description.text = plant.description
-            price.text = plant.price.toString()
+            price.text = price.context.getString(R.string.price).format(plant.price)
             photo.setImageDrawable(ContextCompat.getDrawable(photo.context, plant.imageRes))
         }
     }
