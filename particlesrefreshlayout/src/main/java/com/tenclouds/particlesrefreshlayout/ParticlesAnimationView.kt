@@ -9,9 +9,9 @@ import android.graphics.Paint
 import android.graphics.RectF
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
-import android.support.v4.content.ContextCompat
-import android.support.v4.graphics.drawable.DrawableCompat
-import android.support.v4.view.animation.PathInterpolatorCompat
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.view.animation.PathInterpolatorCompat
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.ViewGroup
@@ -202,7 +202,7 @@ internal class ParticlesAnimationView : FrameLayout {
                 centerXPoint!! + arcSize,
                 centerYPoint!! + arcSize)
         if (arcAngle > 0.1f)
-            canvas.drawArc(arcRect, arcAngle, arcSweepAngle, false, arcPaint)
+            arcPaint?.let { canvas.drawArc(arcRect, arcAngle, arcSweepAngle, false, it) }
     }
 
     private fun updateParticlesEmitPoint() {

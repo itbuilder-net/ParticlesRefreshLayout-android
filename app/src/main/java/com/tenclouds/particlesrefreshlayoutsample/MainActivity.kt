@@ -2,16 +2,20 @@ package com.tenclouds.particlesrefreshlayoutsample
 
 import android.os.Bundle
 import android.os.Handler
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import android.os.Looper
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.tenclouds.particlesrefreshlayout.listener.OnParticleRefreshListener
 import com.tenclouds.particlesrefreshlayoutsample.adapter.PlantsAdapter
 import com.tenclouds.particlesrefreshlayoutsample.adapter.item.Plant
-import kotlinx.android.synthetic.main.activity_main.*
+import com.tenclouds.particlesrefreshlayoutsample.databinding.ActivityMainBinding
+
+//import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity :
         AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
     private val plantsAdapter = PlantsAdapter()
     private val plantsList
         get() =
@@ -45,20 +49,21 @@ class MainActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        with(recyclerView) {
+        with(binding.recyclerView) {
             layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = plantsAdapter
             plantsAdapter.plantsList = plantsList
         }
 
-        particlesSwipeRefresh.onParticleRefreshListener = object : OnParticleRefreshListener {
+        binding.particlesSwipeRefresh.onParticleRefreshListener = object : OnParticleRefreshListener {
             override fun onRefresh() {
-                Handler()
+                Handler(Looper.getMainLooper())
                         .postDelayed(
                                 {
-                                    particlesSwipeRefresh.stopRefreshing()
+                                    binding.particlesSwipeRefresh.stopRefreshing()
                                     plantsAdapter.plantsList = plantsList
                                 },
                                 3000)

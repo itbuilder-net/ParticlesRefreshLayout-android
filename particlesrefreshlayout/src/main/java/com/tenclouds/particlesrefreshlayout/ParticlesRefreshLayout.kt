@@ -3,8 +3,8 @@ package com.tenclouds.particlesrefreshlayout
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.content.Context
-import android.support.v4.content.ContextCompat
-import android.support.v4.widget.ViewDragHelper.INVALID_POINTER
+import androidx.core.content.ContextCompat
+import androidx.customview.widget.ViewDragHelper.INVALID_POINTER
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.MotionEvent

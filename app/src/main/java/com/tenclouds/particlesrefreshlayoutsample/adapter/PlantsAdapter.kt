@@ -1,11 +1,12 @@
 package com.tenclouds.particlesrefreshlayoutsample.adapter
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.tenclouds.particlesrefreshlayoutsample.R
 import com.tenclouds.particlesrefreshlayoutsample.adapter.item.Plant
 import com.tenclouds.particlesrefreshlayoutsample.adapter.view_holder.PlantViewHolder
+import com.tenclouds.particlesrefreshlayoutsample.databinding.VhPlantBinding
 
 class PlantsAdapter :
         RecyclerView.Adapter<PlantViewHolder>() {
@@ -21,13 +22,11 @@ class PlantsAdapter :
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            LayoutInflater.from(parent.context)
-                    .inflate(R.layout.vh_plant, parent, false)
-                    .let { PlantViewHolder(it) }
+        PlantViewHolder(VhPlantBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
     override fun onBindViewHolder(holder: PlantViewHolder, position: Int) =
-            if (plantsList != null && position < plantsList?.size ?: 0) holder.bind(plantsList!![position])
-            else Unit
+        if (plantsList != null && position < plantsList?.size ?: 0) holder.bind(plantsList!![position])
+        else Unit
 
     override fun getItemCount() = plantsList?.size ?: 0
 }
