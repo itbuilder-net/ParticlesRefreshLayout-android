@@ -1,6 +1,5 @@
 Another greate app sample from 10clouds which I have updated with a latest development setup.
-- Out is kotlin synthetics
-- In is View Binding
+- View Binding
 - Kotlin 1.5.20 </br>
 ...
 # Particles Refresh Layout  [![Build Status](https://app.bitrise.io/app/45cdb1c4827b546a/status.svg?token=1eTFsEydehWkAtgPX_H7vg&branch=feature/component)](https://app.bitrise.io/app/45cdb1c4827b546a)[![Download library](https://api.bintray.com/packages/10clouds-android/particlesrefreshlayout/particles-refresh-layout/images/download.svg)](https://bintray.com/10clouds-android/particlesrefreshlayout/particles-refresh-layout)
